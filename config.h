@@ -1,8 +1,8 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
-static const unsigned int gappx     = 5;
+static const unsigned int borderpx  = 4;        /* border pixel of windows */
+static const unsigned int gappx     = 7;
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
@@ -59,16 +59,27 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "alacritty", NULL };
+static const char *dmenucmd[]   = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *termcmd[]    = { "alacritty", NULL };
+static const char *querycmd[]   = { "qutebrowser", NULL };
+static const char *atomcmd[]    = { "atom", NULL };
+static const char *rangercmd[] =  { "alacritty","ranger", NULL };
+static const char *discordcmd[] = { "discord", NULL };
+static const char *browsercmd[] = { "brave", NULL };
+
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+  { MODKEY,                       XK_q,      spawn,          {.v = querycmd } },
+  { MODKEY,                       XK_a,      spawn,          {.v = atomcmd } },
+  { MODKEY,                       XK_r,      spawn,          {.v = rangercmd } },
+  { MODKEY,                       XK_d,      spawn,          {.v = discordcmd } },
+  { MODKEY,                       XK_w,      spawn,          {.v = browsercmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
-        { MODKEY|ShiftMask,             XK_j,      rotatestack,    {.i = +1 } },
-        { MODKEY|ShiftMask,             XK_k,      rotatestack,    {.i = -1 } },
+  { MODKEY|ShiftMask,             XK_j,      rotatestack,    {.i = +1 } },
+  { MODKEY|ShiftMask,             XK_k,      rotatestack,    {.i = -1 } },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
