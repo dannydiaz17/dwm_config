@@ -3,6 +3,9 @@ Dir="$HOME/dwm_config/scripts/status-bar";
 # UP="$(pacman -Qu | grep -Fcv "[ignored]")"; # Updates
 # BAT="$(acpi)"
 
+# Initialize Laptop Screen
+xrandr --output LVDS1 --brightness 0.5
+
 # Initialize Desktops (For g0d-bin)
 #xrandr --output DP-0    --mode 1920x1080 --rate 144;
 #xrandr --output HDMI-0  --mode 1920x1080 --rate 59 --right-of DP-0;
