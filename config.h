@@ -68,7 +68,6 @@ static const char *rangercmd[]  = { "st", "ranger", NULL };
 static const char *discordcmd[] = { "discord", NULL };
 static const char *browsercmd[] = { "brave", NULL };
 
-
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
