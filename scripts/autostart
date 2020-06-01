@@ -1,14 +1,15 @@
 #!/bin/sh
 
-killall -q sh;
+#killall -q sh;
 
 Dir="$HOME/dwm_config/scripts/status-bar";
 
 # UP="$(pacman -Qu | grep -Fcv "[ignored]")"; # Updates
 # BAT="$(acpi)"
 
-# Initialize Laptop Screen
-xrandr --output LVDS1 --brightness 0.5
+# Initialize Laptop Screen and Extra Monitor
+xrandr --output LVDS1 --brightness 0.4
+xrandr --output VGA1 --mode 1366x768 --rate 59.86 --right-of LVDS1;
 
 # Initialize Desktops (For g0d-bin)
 #xrandr --output DP-0    --mode 1920x1080 --rate 144;

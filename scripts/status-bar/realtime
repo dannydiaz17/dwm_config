@@ -8,7 +8,8 @@ do
    DT="$(date '+%A, %b %d, %Y | %T')"; # Date-Time
    CPU="$(mpstat | awk '$3 ~ /CPU/ { for(i=1;i<=NF;i++) { if ($i ~ /%idle/) field=i } } $3 ~ /all/ { print 100 - $field }')";
 #  RAM="$()";
-   xsetroot -name "$DT;CPU: $CPU% | RAM: ";
+   BAT="$(acpi)"
+   xsetroot -name "$DT;CPU: $CPU% | RAM: | BAT: $BAT";
    sleep 0.99;
 
 done
